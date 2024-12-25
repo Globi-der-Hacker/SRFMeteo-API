@@ -2,7 +2,7 @@
 Die von der beliebten SRF Meteo Mobile App genutzt API kann von jedermann aufgerufen werden. 
 Die SRF Meteo Mobile APP nutzt eine API zur Abfrage von Wetterprognosen.
 
-Um die Wetterprognose für einen beliebigen Ort auf der Welt abzufragen, benötigen wir zuerst dessen GeoLocation-ID. Dies kann entweder mit dem Ortsnamen oder der Postleitzahl abgefragt werden:
+Um die Wetterprognose für einen beliebigen Ort auf der Welt abzufragen, benötigen wir zuerst dessen GeoLocation-ID. Dies kann entweder mit dem Ortsnamen oder der Postleitzahl mittels einens simplen GET-Requests abgefragt werden:
 
 ```
 https://www.srf.ch/meteoapi/geolocationNames?name=Zürich
@@ -64,3 +64,17 @@ Als Antwort erhält man eine Liste mit passenden Locations und allerhand nützli
     }
 ]
 ```
+
+Uns interessiert hier aber nur das Feld ```id``` innerhalb von ```geolocation```:
+
+```JSON
+"id": "47.3797,8.5342",
+```
+
+Diese id kann jetzt beim Aufruf des nächsten Web-Services verwendet werden:
+
+```
+https://www.srf.ch/meteoapi/forecastpoint/47.3797,8.5342
+```
+
+Bei der GeoLocation-ID handelt es sich um ein Koordinatenpaar. Es ist aber falsch anzunehmen, dass hier einfach ein beliebiges Koordinaten-Paar verwendet werden kann!
