@@ -7,10 +7,14 @@ Um die Wetterprognose für einen beliebigen Ort auf der Welt abzufragen, benöti
 ```
 https://www.srf.ch/meteoapi/geolocationNames?name=Zürich
 ```
+oder
+```
+https://www.srf.ch/meteoapi/geolocationNames?zip=8000
+```
 
-Als Antwort erhält man eine Liste mit passenden Locations und allerhand nützlicher Informationen wie Höhe über Meer, Anzahl Einwohner einer Stadt usw.
-Uns interessiert hier aber nur das Feld "location_id":
+Als Antwort erhält man eine Liste mit passenden Locations und allerhand nützlicher Informationen wie Höhe über Meer, Anzahl Einwohner einer Stadt usw.:
 
+```JSON
 [
     {
         "district": "",
@@ -19,6 +23,22 @@ Uns interessiert hier aber nur das Feld "location_id":
         "id": "4cdc93de6ddc36141f7493213eeedaee",
         "geolocation": {
             "geolocation_names": [
+                {
+                    "district": "",
+                    "description_short": "Zürich",
+                    "description_long": "Zürich, 408 m ü.M.",
+                    "id": "1192045f06b811b701d8d7fcfd9dec64",
+                    "location_id": "417204077",
+                    "type": "city",
+                    "language": 33,
+                    "translation_type": "trans",
+                    "name": "Zurich",
+                    "country": "Schweiz",
+                    "province": "Zürich",
+                    "inhabitants": 365132,
+                    "height": 408,
+                    "ch": 1
+                },
                 ...
             ],
             "id": "47.3797,8.5342",
@@ -43,3 +63,4 @@ Uns interessiert hier aber nur das Feld "location_id":
         "ch": 1
     }
 ]
+```
