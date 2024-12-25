@@ -78,3 +78,53 @@ https://www.srf.ch/meteoapi/forecastpoint/47.3797,8.5342
 ```
 
 Bei der GeoLocation-ID handelt es sich um ein Koordinatenpaar. Es ist aber falsch anzunehmen, dass hier einfach ein beliebiges Koordinaten-Paar verwendet werden kann!
+
+Als Antwort enthält man eine JSON-Struktur mit den Grobprognosen auf Tagesbasis, einer etwas detaillierteren Prognose im 3-Stunden-Raster und einer Detailprognose im Stundenraster:
+
+```JSON
+{
+    "days": [
+        ...
+    ],
+    "three_hours": [
+        ...
+    ],
+    "hours": [
+        ...
+    ],
+    "geolocation": {
+        ...
+    }
+}
+```
+
+Schauen wir und einen Prognosedatensatz genauer an:
+
+```JSON
+{
+    "date_time": "2024-12-25T00:00:00+01:00",
+    "symbol_code": 10,
+    "symbol24_code": 1,
+    "PROBPCP_PERCENT": 4,
+    "RRR_MM": 0.0,
+    "FF_KMH": 6,
+    "FX_KMH": 15,
+    "DD_DEG": 50,
+    "SUNSET": "2024-12-25T16:40:00+01:00",
+    "SUNRISE": "2024-12-25T08:12:00+01:00",
+    "SUN_H": 3,
+    "UVI": 24,
+    "TX_C": 2,
+    "TN_C": -2,
+    "min_color": {
+        "temperature": -2,
+        "background_color": "#0c429e",
+        "text_color": "#ffffff"
+    },
+    "max_color": {
+        "temperature": 2,
+        "background_color": "#0c527c",
+        "text_color": "#ffffff"
+    }
+}
+```
